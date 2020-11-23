@@ -1,7 +1,9 @@
 package eliza;
 
+// Response library
+
 public class responses {
     
-    String generic_response[] = {"How does that make you feel?"}
+    static String generic_response[] = {"How does that make you feel?"}
 
 }
