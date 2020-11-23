@@ -42,8 +42,9 @@ public class eliza {
         String[] Output;
         return Output;
     }
-    static String analyzeWords()
+    static String analyzeWords(String[] words)
     {
-
+        String Response = "";
+        return Response;
     }
 }
