@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class eliza {
     public static void main(String args[])
     {
-        System.out.println("Fuck You");
         // To break the bot down, it will need the following:
         // Method to scan input and break it down to words and symbols, like "hi" "hello" and "!?"
         // Library of possible words and meaning, trigger words, responses and differences between sentences with ! and ? in them
