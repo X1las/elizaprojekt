@@ -8,6 +8,8 @@ public class eliza {
     public static void main(String args[])
     {
 
+        keywords key = new keywords();
+
 
         // To break the bot down, it will need the following:
         // Method to scan input and break it down to words and symbols, like "hi" "hello" and "!?"
@@ -32,7 +34,7 @@ public class eliza {
                 break;
             } else
             {
-                System.out.println(keywords.words[1]);
+                System.out.println(key.words[1]);
             }
             System.out.println(response);
         }
