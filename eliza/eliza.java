@@ -31,8 +31,11 @@ public class eliza {
             if (text.equals("kill")) {
                 break; // stops the while loop
             } else {
-                // Fetches array of keywords from keywords.java
+                // Converts user input to array of words and symbols
                 String[] words = convertInput(text);
+                
+                // Makes response equal to output of analyzeWords()
+                response = analyzeWords(words);
             }
             // Prints out final response
             System.out.println(response); 
@@ -41,8 +44,9 @@ public class eliza {
 
     // Empty method for converting a string sentence into an array of words and symbols in order
     static String[] convertInput(String input) {
-
-        String[] Output;
+        String temp = input.replaceAll("!","");
+        temp = temp.replaceAll("?","");
+        String[] Output = temp.split(" ");
         return Output;
     }
 
