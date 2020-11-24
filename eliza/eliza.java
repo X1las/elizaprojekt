@@ -54,6 +54,9 @@ public class eliza {
     static String analyzeWords(String[] words) {
 
         for(int i = 0; i < words.lenght; i++){
+            if(words[i].contains(keywords.greating[1])){
+                System.out.println("Hello World");
+            }
             
         }
 
