@@ -32,8 +32,7 @@ public class eliza {
                 break; // stops the while loop
             } else {
                 // Fetches array of keywords from keywords.java
-                String[] words = keywords.words;
-                response = words[1];
+                String[] words = convertInput(text);
             }
             // Prints out final response
             System.out.println(response); 
@@ -42,12 +41,18 @@ public class eliza {
 
     // Empty method for converting a string sentence into an array of words and symbols in order
     static String[] convertInput(String input) {
+
         String[] Output;
         return Output;
     }
 
     // Empty method for analyzing an array of words and compare them to keywords in order to find a response
     static String analyzeWords(String[] words) {
+
+        for(int i = 0; i < words.lenght; i++){
+            
+        }
+
         String Response = "";
         return Response;
     }

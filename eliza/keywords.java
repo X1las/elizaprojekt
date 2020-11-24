@@ -4,5 +4,9 @@ package eliza;
 
 public class keywords {
     // Static string array for keywords (probably remaking this later)
-    static String[] words = {"Hello","Hey","Hi"};
+    static String[] objekt = {"my","his","this"};
+
+    static String[] greating = {"Hello","Hey","Hi"};
+
+    static String[] reflective = {"you", "your"};
 }
