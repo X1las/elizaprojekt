@@ -42,12 +42,18 @@ public class eliza {
         }
     }
 
-    // Empty method for converting a string sentence into an array of words and symbols in order
+    // Method for converting a string sentence into an array of words and symbols in order
     static String[] convertInput(String input) {
+        
+        // Assigning input a temp string to replace all "!" with empty space
         String temp = input.replaceAll("!","");
-        temp = temp.replaceAll("?","");
+        
+        temp = temp.replaceAll("?",""); // Doing the same, but with all "?"
+        
+        // Using String.split() to divide modified text input into an array of words
         String[] Output = temp.split(" ");
-        return Output;
+        
+        return Output; // Returns the array
     }
 
     // Empty method for analyzing an array of words and compare them to keywords in order to find a response
