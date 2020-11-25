@@ -49,8 +49,6 @@ public class eliza {
         // Converting input into a temporary character array tempa
         char[] tempa = input.toCharArray();
         
-        temp = temp.replaceAll("",""); // Doing the same, but with all "?"
-
         // Going through all characters of the array to find ! and ? and replacing them by space
         for (int i = 0 ; i < tempa.length ; i++)
         {
@@ -77,7 +75,7 @@ public class eliza {
     // Empty method for analyzing an array of words and compare them to keywords in order to find a response
     static String analyzeWords(String[] words) {
 
-        System.out.println(words[1]);
+        System.out.println(words[0]);
         
         String Response = "";
         return Response;
