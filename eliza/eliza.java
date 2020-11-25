@@ -74,8 +74,9 @@ public class eliza {
     // Empty method for analyzing an array of words and compare them to keywords in order to find a response
     static String analyzeWords(String[] words) {
 
-        for(int i = 0; i < words.lenght; i++){
-            if(words[i].contains(keywords.greating[1])){
+        for(int i = 0; i < words.length; i++)
+        {
+            if(words[i].contains(keywords.greeting[1])){
                 System.out.println("Hello World");
             }
             
