@@ -40,6 +40,7 @@ public class eliza {
             // Prints out final response
             System.out.println(response); 
         }
+        sca.close();
     }
 
     // Method for converting a string sentence into an array of words and symbols in order
