@@ -40,34 +40,45 @@ public class eliza {
             // Prints out final response
             System.out.println(response); 
         }
+        sca.close();
     }
 
     // Method for converting a string sentence into an array of words and symbols in order
     static String[] convertInput(String input) {
         
-        // Assigning input a temp string to replace all "!" with empty space
-        String temp = input.replaceAll("!","");
+        // Converting input into a temporary character array tempa
+        char[] tempa = input.toCharArray();
         
         temp = temp.replaceAll("",""); // Doing the same, but with all "?"
+
+        // Going through all characters of the array to find ! and ? and replacing them by space
+        for (int i = 0 ; i < tempa.length ; i++)
+        {
+            if (tempa[i] == '!')
+            {
+                tempa[i] = ' ';
+            }
+            if (tempa[i] == '?')
+            {
+                tempa[i] = ' ';
+            }
+        }
+
+        // Converting character array to string
+        String temp = new String(tempa);
+
         
-        // Using String.split() to divide modified text input into an array of words
+        // Splitting the string at each space in the sentence. If i don't add true as the second parameter, it will exclude empty spaces between doubled spaced words as array entries
         String[] Output = temp.split(" ");
-        
-        return Output; // Returns the array
+
+        return Output; // Returns an array of whole words.
     }
 
     // Empty method for analyzing an array of words and compare them to keywords in order to find a response
     static String analyzeWords(String[] words) {
 
         System.out.println(words[1]);
-        /*
-        for(int i = 0; i < words.lenght; i++){
-            if(words[i].contains(keywords.greating[1])){
-                System.out.println("Hello World");
-            }
-            
-        }
-        */
+        
         String Response = "";
         return Response;
     }
