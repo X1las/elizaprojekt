@@ -48,7 +48,7 @@ public class eliza {
         // Assigning input a temp string to replace all "!" with empty space
         String temp = input.replaceAll("!","");
         
-        temp = temp.replaceAll("?",""); // Doing the same, but with all "?"
+        temp = temp.replaceAll("",""); // Doing the same, but with all "?"
         
         // Using String.split() to divide modified text input into an array of words
         String[] Output = temp.split(" ");
@@ -59,13 +59,15 @@ public class eliza {
     // Empty method for analyzing an array of words and compare them to keywords in order to find a response
     static String analyzeWords(String[] words) {
 
+        System.out.println(words[1]);
+        /*
         for(int i = 0; i < words.lenght; i++){
             if(words[i].contains(keywords.greating[1])){
                 System.out.println("Hello World");
             }
             
         }
-
+        */
         String Response = "";
         return Response;
     }
