@@ -78,33 +78,34 @@ public class eliza {
     // Empty method for analyzing an array of words and compare them to keywords in order to find a response
     static String analyzeWords(String[] words) 
     {
-
+        // fetching keywords from keywords.java
         String[] key_greeting = keywords.greeting;
         String[] key_object = keywords.object;
         String[] key_reflect = keywords.reflective;
 
-        String Response = "";
-        boolean greeted = false;
+        String Response = "";                           // Making a response variable that is empty
+        boolean greeted = false;                        // Making a boolean to count whether we greeted the user or not to avoid overlapping
 
-        Random r = new Random();
+        Random r = new Random();                        // Making random object to choose random responses from given categories for variation
 
-        for (int i = 0 ; i < words.length ; i++)
+        for (int i = 0 ; i < words.length ; i++)        // For loop that iterates between words in array
         {
-            if (!greeted)
+            if (!greeted)                               // Check to see if greeted
             {
-                for (int k = 0 ; k < key_greeting.length ; k++)
+                for (int k = 0 ; k < key_greeting.length ; k++)                         // For loop that iterates between greeting keywords
                 {
+                    // Code that executes if we get a match
                     if (key_greeting[k].equals(words[i]))
                     {
-                        String[] temp_resp = responses.greeting_response;
-                        Response = temp_resp[r.nextInt(temp_resp.length-1)] + Response;
-                        greeted = true;
-                        break;
+                        String[] temp_resp = responses.greeting_response;                   // Assigns greeting responses to a temporary array
+                        Response = temp_resp[r.nextInt(temp_resp.length-1)] + Response;     // Adds a greeting message to the beginning of our response
+                        greeted = true;                                                     // Ticks greeted on
+                        break;                                                              // Breaks the for loop
                     }
                 }
             }
         }
         
-        return Response;
+        return Response; // Returns the eventual response
     }
 }
