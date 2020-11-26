@@ -1,6 +1,7 @@
 package eliza;
 
 import java.util.Scanner;
+import java.util.Random;
 
 // Elizabot, a bot that communicates with a user and keeps a conversation going.
 // Source: a therapist bot that is there to keep calm continuous conversation by asking what the user feels and registering key words to respond to/with
@@ -40,11 +41,13 @@ public class eliza {
             // Prints out final response
             System.out.println(response); 
         }
+        // Closing the scanner to avoid resource leak
         sca.close();
     }
 
     // Method for converting a string sentence into an array of words and symbols in order
-    static String[] convertInput(String input) {
+    static String[] convertInput(String input) 
+    {
         
         // Converting input into a temporary character array tempa
         char[] tempa = input.toCharArray();
@@ -73,11 +76,35 @@ public class eliza {
     }
 
     // Empty method for analyzing an array of words and compare them to keywords in order to find a response
-    static String analyzeWords(String[] words) {
+    static String analyzeWords(String[] words) 
+    {
 
-        System.out.println(words[0]);
-        
+        String[] key_greeting = keywords.greeting;
+        String[] key_object = keywords.object;
+        String[] key_reflect = keywords.reflective;
+
         String Response = "";
+        boolean greeted = false;
+
+        Random r = new Random();
+
+        for (int i = 0 ; i < words.length ; i++)
+        {
+            if (!greeted)
+            {
+                for (int k = 0 ; k < key_greeting.length ; k++)
+                {
+                    if (key_greeting[k].equals(words[i]))
+                    {
+                        String[] temp_resp = responses.greeting_response;
+                        Response = temp_resp[r.nextInt(temp_resp.length-1)] + Response;
+                        greeted = true;
+                        break;
+                    }
+                }
+            }
+        }
+        
         return Response;
     }
 }
