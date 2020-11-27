@@ -104,6 +104,15 @@ public class eliza {
                     }
                 }
             }
+            for (int k = 0 ; k < key_reflect.length ; k++)   {
+
+                if(key_reflect[k].equals(words[i])){
+                    Response = responses.reflective_response[0];   
+                    break;
+                }
+
+            }
+            
         }
         
         return Response; // Returns the eventual response
