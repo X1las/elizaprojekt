@@ -4,7 +4,7 @@ package eliza;
 
 public class responses {
     
-    static String generic_response[] = {"How does that make you feel? ", "Tell me more about this ","Go on ","Tell me more about what bothers you "};
+    static String generic_response[] = {"How does that make you feel? ", "Tell me more about this ","Go on ","Tell me more about what bothers you ", "I can only talk to you"};
 
     static String greeting_response[] = {"Hello ", "Hi ", "Hey ","Greetings "};
 

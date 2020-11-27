@@ -66,6 +66,7 @@ public class eliza {
         String[] key_greeting = keywords.greeting;
         String[] key_object = keywords.object;
         String[] key_reflect = keywords.reflective;
+        String[] key_generic = keywords.generic;
 
         String Response = "";                                   // Making a response variable that is empty to keep our response if we find a match
 
@@ -74,6 +75,13 @@ public class eliza {
         outerloop:
         for (int i = 0; i < words.length; i++)                  // For loop that iterates between words in array
         {
+            for(int k = 0; k < key_generic.length; k++){
+
+                if(key_generic[k].equals(words[i])){
+                    Response = responses.generic_response[4];
+                    break outerloop;
+                }
+            }
             for (int k = 0; k < key_greeting.length; k++)       // For loop that iterates between greeting keywords
             {
                 if (key_greeting[k].equals(words[i])) {                                 // Code that executes if we get a match

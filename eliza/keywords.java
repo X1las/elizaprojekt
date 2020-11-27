@@ -9,4 +9,6 @@ public class keywords {
     static String[] greeting = {"hello","hey","hi"};
 
     static String[] reflective = {"you", "your"};
+
+    static String[] generic = {"help"};
 }
