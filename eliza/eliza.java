@@ -14,107 +14,84 @@ import java.util.Random;
 
 public class eliza {
     public static void main(String args[]) {
-        // Creating scanner object
-        Scanner sca = new Scanner(System.in);
-
+        Scanner sca = new Scanner(System.in);               // Creating scanner object
+        
         // Startup message
         System.out.println("Hello! Welcome to ChatBotMK1, Remake of Eliza! \nNote that you can stop the program at any type by simply writing 'kill' \n\nHello there!");
 
-        // Dialogue loop, stopped with "kill" command
-        while (true) {
-            // Getting user input with scanner object
-            String text = sca.nextLine().toLowerCase();
+        while (true)                                        // Dialogue loop, stopped with "kill" command
+        {
+            String text = sca.nextLine().toLowerCase();     // Getting user input with scanner object
 
-            // Making a default response, changed inside the else statement
-            String response = "Sorry, Didn't get that!";
+            String response = "Sorry, Didn't get that!";    // Making a default response, changed inside the else statement
 
-            // Checker for 'kill' command
-            if (text.equals("kill")) {
-                break; // stops the while loop
+            if (text.equals("kill"))                        // Checker for 'kill' command
+            {
+                break;                                      // stops the while loop
             } else {
-                // Converts user input to array of words and symbols
-                String[] words = convertInput(text);
-                
-                // Makes response equal to output of analyzeWords()
-                response = analyzeWords(words);
+                String[] words = convertInput(text);        // Converts user input to array of words and symbols
+
+                response = analyzeWords(words);             // Makes response equal to output of analyzeWords()
             }
-            // Prints out final response
-            System.out.println(response); 
+            System.out.println(response);                   // Prints out final response
         }
-        // Closing the scanner to avoid resource leak
-        sca.close();
+        sca.close();                                        // Closing the scanner to avoid resource leak
     }
 
     // Method for converting a string sentence into an array of words and symbols in order
-    static String[] convertInput(String input) 
-    {
-        
-        // Converting input into a temporary character array tempa
-        char[] tempa = input.toCharArray();
-        
-        // Going through all characters of the array to find ! and ? and replacing them by space
-        for (int i = 0 ; i < tempa.length ; i++)
+    static String[] convertInput(String input) {
+
+        char[] tempa = input.toCharArray();         // Converting input into a temporary character array tempa
+
+        for (int i = 0; i < tempa.length; i++)      // Going through all characters of the array to find ! and ? and replacing them with spaces
+
         {
-            if (tempa[i] == '!')
-            {
+            if (tempa[i] == '!') {
                 tempa[i] = ' ';
             }
-            if (tempa[i] == '?')
-            {
+            if (tempa[i] == '?') {
                 tempa[i] = ' ';
             }
         }
 
-        // Converting character array to string
-        String temp = new String(tempa);
-
-        
-        // Splitting the string at each space in the sentence. If i don't add true as the second parameter, it will exclude empty spaces between doubled spaced words as array entries
-        String[] Output = temp.split(" ");
-
-        return Output; // Returns an array of whole words.
+        String temp = new String(tempa);            // Converting character array to string
+        String[] Output = temp.split(" ");          // Splitting the string at each space in the sentence.
+        return Output;                              // Returns an array of whole words.
     }
 
     // Empty method for analyzing an array of words and compare them to keywords in order to find a response
-    static String analyzeWords(String[] words) 
-    {
+    static String analyzeWords(String[] words) {
+        
         // fetching keywords from keywords.java
         String[] key_greeting = keywords.greeting;
         String[] key_object = keywords.object;
         String[] key_reflect = keywords.reflective;
 
-        String Response = "";                           // Making a response variable that is empty
-        boolean greeted = false;                        // Making a boolean to count whether we greeted the user or not to avoid overlapping
+        String Response = "";                                   // Making a response variable that is empty to keep our response if we find a match
 
-        Random r = new Random();                        // Making random object to choose random responses from given categories for variation
-
-        for (int i = 0 ; i < words.length ; i++)        // For loop that iterates between words in array
+        Random r = new Random();                                // Making random object to choose random responses from given categories for
+                                                                // variation
+        outerloop:
+        for (int i = 0; i < words.length; i++)                  // For loop that iterates between words in array
         {
-            if (!greeted)                               // Check to see if greeted
+            for (int k = 0; k < key_greeting.length; k++)       // For loop that iterates between greeting keywords
             {
-                for (int k = 0 ; k < key_greeting.length ; k++)                         // For loop that iterates between greeting keywords
-                {
-                    // Code that executes if we get a match
-                    if (key_greeting[k].equals(words[i]))
-                    {
-                        String[] temp_resp = responses.greeting_response;                   // Assigns greeting responses to a temporary array
-                        Response = temp_resp[r.nextInt(temp_resp.length-1)] + Response;     // Adds a greeting message to the beginning of our response
-                        greeted = true;                                                     // Ticks greeted on
-                        break;                                                              // Breaks the for loop
-                    }
+                if (key_greeting[k].equals(words[i])) {                                 // Code that executes if we get a match
+                    String[] temp_resp = responses.greeting_response;                   // Assigns greeting responses to a temporary array
+                    Response = temp_resp[r.nextInt(temp_resp.length - 1)];              // Adds a greeting message to the
+                    break outerloop;                                                    // Breaks the entire for loop
                 }
             }
-            for (int k = 0 ; k < key_reflect.length ; k++)   {
+            for (int k = 0; k < key_reflect.length; k++) {
 
-                if(key_reflect[k].equals(words[i])){
-                    Response = responses.reflective_response[0];   
-                    break;
+                if (key_reflect[k].equals(words[i])) {
+                    Response = responses.reflective_response[0];
+                    break outerloop;
                 }
-
             }
-            
+
         }
-        
-        return Response; // Returns the eventual response
+
+        return Response;                                        // Returns the eventual response
     }
 }
