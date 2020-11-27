@@ -70,8 +70,8 @@ public class eliza {
 
         String Response = "";                                   // Making a response variable that is empty to keep our response if we find a match
 
-        Random r = new Random();                                // Making random object to choose random responses from given categories for
-                                                                // variation
+        Random r = new Random();                                // Making random object to choose random responses from given categories for variation
+        
         outerloop:
         for (int i = 0; i < words.length; i++)                  // For loop that iterates between words in array
         {
@@ -82,7 +82,7 @@ public class eliza {
                     break outerloop;
                 }
             }
-            for (int k = 0; k < key_greeting.length; k++)       // For loop that iterates between greeting keywords
+            for (int k = 0; k < key_greeting.length; k++)                               // For loop that iterates between greeting keywords
             {
                 if (key_greeting[k].equals(words[i])) {                                 // Code that executes if we get a match
                     String[] temp_resp = responses.greeting_response;                   // Assigns greeting responses to a temporary array
@@ -94,7 +94,6 @@ public class eliza {
 
                 if (key_reflect[k].equals(words[i])) {
                     Response = responses.reflective_response[0];
-                    break outerloop;
                 }
             }
 
