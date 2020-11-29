@@ -75,7 +75,7 @@ public class eliza {
             {
                 if(key_help[k].equals(words[i]))                                        // Check to see if word equals keyword
                 {
-                    String[] temp_resp = responses.greeting_response;                   // Assigns help responses to a temporary array
+                    String[] temp_resp = responses.help_response;                   // Assigns help responses to a temporary array
                     Response = temp_resp[r.nextInt(temp_resp.length - 1)];              // Assigns a random help response to the response
                     break outerloop;                                                    // Break the entire loop
                 }
@@ -135,6 +135,6 @@ public class eliza {
             Response = temp_resp[r.nextInt(temp_resp.length - 1)];
         }
 
-        return Response;                                        // Returns the eventual response
+        return Response;                                                                // Returns the eventual response
     }
 }
