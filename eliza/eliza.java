@@ -96,6 +96,24 @@ public class eliza {
                     Response = responses.reflective_response[0];
                 }
             }
+            for (int k = 0; k < key_object.length; k++) {
+
+                if (key_object[3].equals(words[i])) {
+                    Response = "why do you think";
+                    for(int x = i + 2; x < words.length; x++){
+                        if(words[x].equals("my")){
+                            Response = Response + " your";
+                        }else if(words[x].equals("me")){
+                            Response = Response + " you";
+                        }
+                        else{
+                        Response = Response + " " + words[x];
+                        }
+                    }
+                break;
+                    
+                }
+            }
         }
 
         if (Response.equals(" "))
