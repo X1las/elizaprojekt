@@ -67,6 +67,7 @@ public class eliza {
         String[] key_object = keywords.object;
         String[] key_reflect = keywords.reflective;
         String[] key_generic = keywords.generic;
+        String[] key_whatWords = keywords.whatWords;
 
         String Response = " ";                                  // Making a response variable that is empty to keep our response if we find a match
 
@@ -96,20 +97,31 @@ public class eliza {
                     Response = responses.reflective_response[0];
                 }
             }
-            for (int k = 0; k < key_object.length; k++) {
+            for (int k = 0; k < key_whatWords.length; k++) {
 
-                if (key_object[3].equals(words[i])) {
-                    Response = "why do you think";
+                if (key_whatWords[k].equals(words[i])) {
+                    Response = words[i] + " do you think";
+                    boolean thing;
+                    if(words[1].equals("will") || words[1].equals("can")){
+                        thing = true;
+                    }else{
+                        thing = false;
+                    }
                     for(int x = i + 2; x < words.length; x++){
+                        
                         if(words[x].equals("my")){
                             Response = Response + " your";
-                        }else if(words[x].equals("me")){
-                            Response = Response + " you";
+                        }else if(words[x].equals("me") || words[x].equals("i")){
+                            if(thing == true){
+                                Response = Response + " you";
+                                Response = Response + " " + words[1];
+                            }
                         }
                         else{
-                        Response = Response + " " + words[x];
+                            Response = Response + " " + words[x];
                         }
                     }
+                Response = Response + "?";
                 break;
                     
                 }
