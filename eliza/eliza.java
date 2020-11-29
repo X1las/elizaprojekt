@@ -68,7 +68,7 @@ public class eliza {
         String[] key_reflect = keywords.reflective;
         String[] key_generic = keywords.generic;
 
-        String Response = "";                                   // Making a response variable that is empty to keep our response if we find a match
+        String Response = " ";                                  // Making a response variable that is empty to keep our response if we find a match
 
         Random r = new Random();                                // Making random object to choose random responses from given categories for variation
         
@@ -96,7 +96,12 @@ public class eliza {
                     Response = responses.reflective_response[0];
                 }
             }
+        }
 
+        if (Response.equals(" "))
+        {
+            String[] temp_resp = responses.generic_response;
+            Response = temp_resp[r.nextInt(temp_resp.length - 1)];
         }
 
         return Response;                                        // Returns the eventual response
