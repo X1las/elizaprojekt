@@ -106,7 +106,7 @@ public class eliza {
                     words[i+1] = temp2;
                     words[i+2] = temp1;
                     boolean thing;
-                    for(int x = i+1; x < words.length; x++){
+                    for(int x = i + 1; x < words.length; x++){
                         if(words[x].equals("my")){
                             Response = Response + " your";
                         }else if(words[x].equals("me") || words[x].equals("i")){
