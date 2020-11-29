@@ -101,21 +101,16 @@ public class eliza {
 
                 if (key_whatWords[k].equals(words[i])) {
                     Response = words[i] + " do you think";
+                    String temp1 = words[i+1];
+                    String temp2 = words[i+2];
+                    words[i+1] = temp2;
+                    words[i+2] = temp1;
                     boolean thing;
-                    if(words[1].equals("will") || words[1].equals("can")){
-                        thing = true;
-                    }else{
-                        thing = false;
-                    }
-                    for(int x = i + 2; x < words.length; x++){
-                        
+                    for(int x = i+1; x < words.length; x++){
                         if(words[x].equals("my")){
                             Response = Response + " your";
                         }else if(words[x].equals("me") || words[x].equals("i")){
-                            if(thing == true){
-                                Response = Response + " you";
-                                Response = Response + " " + words[1];
-                            }
+                            Response = Response + " you";
                         }
                         else{
                             Response = Response + " " + words[x];
