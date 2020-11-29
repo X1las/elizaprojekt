@@ -10,6 +10,6 @@ public class responses {
 
     static String object_response[] = {"How does that make you feel? "};
 
-    static String reflective_response[] = {"This is not about me, how are you? ", ""};
+    static String reflective_response[] = {"This is not about me, what troubles you? ", "I am not important in this conversation, tell me something about yourself"};
 
 }
